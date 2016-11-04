@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>ios-unlock-test</title>
+  <link rel="stylesheet" type="text/css" href="./assets/style.css">
+</head>
+<body>
+<p>ページ読み込みと同時にロード＆再生、そしてタップイベントに無音再生</p>
+<ul>
+  <li>PC： 即座に鳴る</li>
+  <li>iOS： タップで再生開始</li>
+</ul>
+
+<script type="text/javascript" src="wa.js"></script>
+<script type="text/javascript">
+
+;(function(wa){
+
+  window.onload = function() {
+    // ページ読み込みと同時にロード
+    wa.loadFile("./assets/sample.mp3", function(buffer) {
+      wa.play(buffer);
+
+      // ユーザーイベント
+      var event = "click";
+      document.addEventListener(event, function() {
+        wa.playSilent();
+      });
+    });
+  }
+
+}(wa));
+
+</script>
+</body>
+</html>

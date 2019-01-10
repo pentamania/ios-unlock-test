@@ -7,6 +7,8 @@ var ENV_OTHER = "Firefox, MS Edge, etc."
 var RES_NO_SOUND = "何をしても鳴らない"
 var RES_SOUND_BY_INTERACTION = "画面タップ（クリック）で再生"
 var RES_SOUND_IMMEDIATE = "即座に再生される"
+var RES_SOUND_SOMETIMES = "状況によっては即座に再生される"
+var RES_SOUND_BY_INTERACTION_SOMETIMES_IMMEDIATE = `${RES_SOUND_BY_INTERACTION}、${RES_SOUND_SOMETIMES}`
 
 var PUG_OPTION = { pretty: true }
 var DIST = "./cases"
@@ -21,7 +23,7 @@ var pages = [
     pageTitle: 'ページ読み込みと同時にロード＆再生',
     results: [
       { env: ENV_IOS, message: RES_NO_SOUND },
-      { env: ENV_CHROME, message: RES_NO_SOUND },
+      { env: ENV_CHROME, message: RES_SOUND_SOMETIMES },
       { env: ENV_OTHER, message: RES_SOUND_IMMEDIATE },
     ],
     script: `
@@ -38,7 +40,7 @@ var pages = [
     pageTitle: 'ページ読み込みと同時にロード＆再生、そしてタップイベントに無音再生',
     results: [
       { env: ENV_IOS, message: RES_SOUND_BY_INTERACTION },
-      { env: ENV_CHROME, message: RES_SOUND_BY_INTERACTION },
+      { env: ENV_CHROME, message: RES_SOUND_BY_INTERACTION_SOMETIMES_IMMEDIATE },
       { env: ENV_OTHER, message: RES_SOUND_IMMEDIATE },
     ],
     script: `
@@ -60,7 +62,7 @@ var pages = [
     pageTitle: 'ページ読み込みと同時にロード、タップイベントにサウンド再生',
     results: [
       { env: ENV_IOS, message: RES_SOUND_BY_INTERACTION },
-      { env: ENV_CHROME, message: RES_SOUND_BY_INTERACTION },
+      { env: ENV_CHROME, message: RES_SOUND_BY_INTERACTION_SOMETIMES_IMMEDIATE },
       { env: ENV_OTHER, message: RES_SOUND_IMMEDIATE },
     ],
     script: `

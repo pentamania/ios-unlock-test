@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>iOSアンロックテスト - ページ読み込みと同時にロード、タップイベントに非同期処理をはさんで再生</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css">
+  </head>
+  <body>
+    <h2>ページ読み込みと同時にロード、タップイベントに非同期処理をはさんで再生</h2>
+    <ul>
+      <li>iOS： 何をしても鳴らない</li>
+      <li>Google Chrome 71+： 画面タップ（クリック）で再生</li>
+      <li>Firefox, MS Edge, etc.： 画面タップ（クリック）で再生</li>
+    </ul>
+    <script src="../shared/wa.js"></script>
+    <script type="text/javascript">
+    window.onload = function() {
+      // ページ読み込みと同時にロード
+      wa.loadFile('../shared/sample.mp3', function(buffer) {
+
+        // ユーザーイベント
+        var event = 'click';
+        document.addEventListener(event, function() {
+          // 非同期処理
+          wa.loadFile('../shared/sample.mp3', function() {
+            wa.play('sample.mp3');
+          });
+        });
+      });
+    }
+    </script>
+  </body>
+</html>

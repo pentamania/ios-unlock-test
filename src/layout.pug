@@ -1,0 +1,15 @@
+doctype html
+html(lang="ja")
+  head
+    title iOSアンロックテスト - #{pageTitle}
+    //- link(rel="stylesheet" type="text/css" href="../shared/style.css")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.min.css")
+  body
+    h2 #{pageTitle}
+    ul
+      each result in results
+        li #{result.env}： #{result.message}
+
+    script(src='../shared/wa.js')
+    script(type='text/javascript').
+      #{script}

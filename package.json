@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "browser-sync start --server"
+    "start": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "iOS", "webAudio"
+    "iOS",
+    "webAudio"
   ],
   "author": "pentamania",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "fs-extra": "7.0.1",
+    "pug": "2.0.3"
+  }
 }

@@ -2,8 +2,8 @@ var fs = require('fs-extra')
 var pug = require('pug')
 
 var ENV_IOS = "iOS"
-var ENV_CHROME = "Google Chrome 71+"
-var ENV_OTHER = "Firefox, MS Edge, etc."
+var ENV_CHROME = "Google Chrome 71+, MS Edge(新)などのChromium系ブラウザ"
+var ENV_OTHER = "Firefox, MS Edge(旧), etc."
 var RES_NO_SOUND = "何をしても鳴らない"
 var RES_SOUND_BY_INTERACTION = "画面タップ（クリック）で再生"
 var RES_SOUND_IMMEDIATE = "即座に再生される"
